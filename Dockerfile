@@ -13,5 +13,7 @@ RUN yum -y install \
 RUN /usr/lib64/squid/ssl_crtd -c -s /var/lib/ssl_db
 RUN chown squid:squid -R /var/lib/ssl_db
 
+RUN ln -s /log-dev/log /dev/log
+
 EXPOSE 3128/tcp
 CMD [ "squid -NYCd 1" ]
